@@ -52,23 +52,26 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                            </a>
+                            <ul class="" aria-labelledby="navbarDropdown">
+                              <li>
+                                <a class="dropdown-item" href="#">
+                                    My profile
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
-                            </li>
+                            </ul>
+                          </li>
+                            
                         @endguest
                     </ul>
                 </div>
@@ -81,6 +84,6 @@
     </div>
     
     <!-- Scripts -->
-    <script src="{{ asset('frotend/is/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('frotend/js/bootstrap.bundle.min.js')}}" defer></script>
 </body>
 </html>
