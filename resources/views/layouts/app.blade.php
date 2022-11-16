@@ -63,8 +63,8 @@
                                 <a class="dropdown-item" href="#">
                                     Action
                                 </a>
-                            </li>
-                            <li>
+                             </li>
+                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">
@@ -73,13 +73,9 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                            </li>
+                             </li>
                             </ul>
-                          </li>
-
-
-                        
-                            
+                          </li>                     
                         @endguest
                     </ul>
                 </div>
