@@ -33,4 +33,18 @@ class FrontendController extends Controller
         }
      
     }
+    public function product_view($cate_slug, $prod_slug)
+    {
+        if(Category::where('slug', $cate_slug)->exists())
+        {
+            if(Product::where('slug', $prod_slug)->exists()){
+                $product = Product::where('slug', $prod_slug)->first();
+                return view('frontend.product.view',compact('product'));
+            }else{
+         return redirect('/')->with('status', "Slug don't exists");
+            }
+        }else{
+            return redirect('/')->with('status', "Slug don't exists");
+        }
+    }
 }

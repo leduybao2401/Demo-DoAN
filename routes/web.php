@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Routing\Controller;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\CartController;
+
 
 
 
@@ -27,11 +29,12 @@ Route::get('/', [FrontendController::class, 'index'] );
 // {{-- resuorse.frontend.index --}}
 Route::get('category', [FrontendController::class, 'category']);
 Route::get('view_category/{slug}', [FrontendController::class, 'view_category']);
+Route::get('view_category/{cate_slug}/{prod_slug}', [FrontendController::class, 'product_view']);
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //  Route::middleware(['auth', 'isAdmin'])->group(function(){
 //     Route::get('/dashboard', function () {
@@ -39,10 +42,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //      });
   
 //  });
+Route::post('add-to-cart', [CartController::class, 'addProduct']);
+Route::post('delete-cart-item', [CartController::class, 'deleteProduct']);
+Route::post('update-cart',[CartController::class, 'updatecart'] );
+ Route::middleware(['auth'])->group(function(){
+   Route::get('cart', [CartController::class, 'viewcart']);
+     });
+
+
+
+
 
  Route::middleware(['auth', 'isAdmin'])->group(function(){
     Route::get('/dashboard','Admin\FrontendController@index');
-
     Route::get('categories','Admin\CategoryController@index');
     Route::get('add-categories','Admin\CategoryController@add');
     Route::post('insert-category','Admin\CategoryController@insert');

@@ -32,6 +32,12 @@
 
     <link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    {{-- google Fonts --}}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
+
+ {{--Fonts awesome--}}
 
 
 
@@ -55,6 +61,7 @@
     <script src="{{ asset('admin/js/smooth-scrollbar.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/chartjs.min.js') }}" defer></script> --}}
     <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/10296a4c74.js"></script>
 
     @yield('scripts')
 </body>
