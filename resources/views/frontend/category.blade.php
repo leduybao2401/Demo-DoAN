@@ -13,10 +13,10 @@
 
                <h1>ALL CATEGORY</h1>
                 @foreach ($category as $cate)
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3" style="width: 175px">
                     <a href="{{ url('view_category/'.$cate->slug, []) }}">              
                         <div class="card">
-                            <img src="{{ asset('assets/uploads/category/'.$cate->image) }}" alt="Category card" style="height:200px ;">
+                            <img src="{{ asset('assets/uploads/category/'.$cate->image) }}" alt="Category card" style="height:150px; width:100%">
                             <div class="card-body">
                                 <h5>{{$cate->name}}</h5>
                             <p>

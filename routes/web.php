@@ -3,13 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Routing\Controller;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
-
-
-
+use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,8 +45,14 @@ Auth::routes();
 Route::post('add-to-cart', [CartController::class, 'addProduct']);
 Route::post('delete-cart-item', [CartController::class, 'deleteProduct']);
 Route::post('update-cart',[CartController::class, 'updatecart'] );
+
  Route::middleware(['auth'])->group(function(){
    Route::get('cart', [CartController::class, 'viewcart']);
+   Route::get('checkout',[CheckoutController::class, 'index'] );
+   Route::post('plance-order',[CheckoutController::class, 'planceOrder']);
+   Route::get('my-order', [UserController::class, 'index']);
+   Route::get(' view-order/{id}', [UserController::class, 'viewOrder']);
+  
      });
 
 
@@ -72,7 +78,12 @@ Route::post('update-cart',[CartController::class, 'updatecart'] );
     Route::put('update-product/{id}', [ProductController::class, 'update']);
     Route::get('delete-prod/{id}', [ProductController::class, 'delete']);
 
-  
+    Route::get('user', [FrontendController::class, 'users']);
+    Route::get('order', [OrderController::class, 'index']);
+    Route::get('admin/view-order/{id}', [OrderController::class, 'view']);
+    Route::put('update-order/{id}', [OrderController::class, 'updateOrder']);
+    Route::get('order-history', [OrderController::class, 'orderhistory']);
+    
  });
  
  

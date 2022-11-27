@@ -45,17 +45,19 @@
                             <button class="input-group-text btn btn-success" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"> +    </button>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                      
-                        <br>
-                        <button type="button" class="btn btn-success me-3 addToCartBtn float-start"> ADD to WISH 
-                            <i class="fa fa-heart"></i>
-                        </button>
-                        <button type="button" class="btn btn-info me-3 float-start"> ADD
-                            <i class="fa-solid fa-cart-shopping"></i>
-                            </button>    
+                        <div class="col-md-9">
+                        
+                            <br>
+                                @if($product->qty > 0)
+                                        <button type="button" class="btn btn-success me-3 addToCartBtn float-start"> ADD to WISH 
+                                            <i class="fa fa-heart"></i>
+                                        </button>                              
+                                @endif
+                                        <button type="button" class="btn btn-info me-3 float-start"> ADD
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </button>    
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
