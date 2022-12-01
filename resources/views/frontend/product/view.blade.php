@@ -17,7 +17,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-4 border-right">
-                <img src="{{asset('assets/uploads/products/'.$product->image)}}" alt="">
+                <img src="{{asset('assets/uploads/products/'.$product->image)}}" alt="" style="width:150px; ">
             </div>
 
             <div class="col-md-8">
@@ -26,7 +26,8 @@
                 </h2>
                 <hr>
                 <label class="me-3">Original price: <s>RS {{$product->original_price}}</s></label>
-                <label class="fw-bold">Selling Price: RS {{$product->selling_price}}  </label>
+                <label class="fw-bold">Selling Price: RS {{$product->selling_price}}  </label> <br>
+               <h6 class="mt-3"> {{$product->small_description}}</h6>
                 <hr>
              
                
@@ -49,17 +50,21 @@
                         
                             <br>
                                 @if($product->qty > 0)
-                                        <button type="button" class="btn btn-success me-3 addToCartBtn float-start"> ADD to WISH 
+                                        
+                                        <button type="button" class="btn btn-info me-3 addtoWish float-start"> ADD to WISH
                                             <i class="fa fa-heart"></i>
-                                        </button>                              
+                                        </button>                               
                                 @endif
-                                        <button type="button" class="btn btn-info me-3 float-start"> ADD
-                                            <i class="fa-solid fa-cart-shopping"></i>
-                                        </button>    
+                                <button type="button" class="btn btn-success me-3 addToCartBtn float-start">  ADD to card
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button> 
                         </div>
                     </div>
-            </div>
+            </div>    
         </div>
+        <hr>
+        <h4>Discription </h4> <br>
+        {{$product->description}}
     </div>
 </div>
 </div>
@@ -67,33 +72,6 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function(){
-            $('.addToCartBtn').click(function(e){
-                e.preventDefault();
-                var product_id = $(this).closest('.product_data').find('.prod_id').val();
-                var product_qty = $(this).closest('.product_data').find('.qty-input').val(); 
-
-                            //  alert(product_id)
-                             $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-                               $.ajax({
-                                method: "POST",
-                                url: "/add-to-cart",
-                                data: {
-                                    'product_id': product_id,
-                                    'product_qty': product_qty,
-                                },
-                                success: function (response) {
-                                    alert(response.status);
-                                }
-                               });            
-          
-
-            });
-        });
         
     </script>
 

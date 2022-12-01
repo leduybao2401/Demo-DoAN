@@ -13,7 +13,14 @@
             <a class="nav-link" href="{{ url('category', []) }}">Category</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('cart', []) }}">Cart</a>
+            <a class="nav-link" href="{{ url('cart', []) }}">Cart
+            <span class="badge badge-bill bg-primary cart-count">0</span>
+           </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('wishlist', []) }}">Wishlist
+              <span class="badge badge-bill bg-success wishlist-cart-count">0</span>
+            </a>
           </li>
          
           <li class="nav-item">

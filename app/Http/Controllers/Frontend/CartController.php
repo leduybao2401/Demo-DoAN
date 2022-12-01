@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -79,4 +80,15 @@ class CartController extends Controller
               return response()->json(['status' => "Loginto Contoniue"]);
         }
     }
+    public function cartcount()
+    {
+        $cartcount = Cart::where('user_id', Auth::id())->count();
+        return response()->json(['count' =>$cartcount ]);
+    }
+    public function wishlistcount()
+    {
+        $wishlistcount = Wishlist::where('user_id', Auth::id())->count();
+        return response()->json(['count' =>$wishlistcount ]);
+    }
+    
 }

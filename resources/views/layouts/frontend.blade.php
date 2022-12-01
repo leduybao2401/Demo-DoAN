@@ -56,6 +56,7 @@
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" ></script>
     <script src="{{ asset('frontend/js/jquery-3.6.1.min.js') }}" ></script>
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" ></script>
+    <script src="{{ asset('frontend/js/custom.js') }}" ></script>
     {{-- <script src="{{ asset('admin/js/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/perfect-scrollbar.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/smooth-scrollbar.min.js') }}" defer></script>
