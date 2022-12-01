@@ -31,6 +31,7 @@ Route::get('/', [FrontendController::class, 'index'] );
 // {{-- resuorse.frontend.index --}}
 Route::get('category', [FrontendController::class, 'category']);
 Route::get('view_category/{slug}', [FrontendController::class, 'view_category']);
+Route::get('viewcategory/{name}', [FrontendController::class, 'productview' ]);
 Route::get('view_category/{cate_slug}/{prod_slug}', [FrontendController::class, 'product_view']);
 
 

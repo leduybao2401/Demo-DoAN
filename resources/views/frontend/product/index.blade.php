@@ -15,8 +15,7 @@
 <div class="container">
     <div class="container">
         <div class="row">
-            <h2>{{$category->name}}</h2>
-              
+            <h2>{{$category->name}}</h2>             
                 @foreach ( $product  as $prod)
                {{-- // $product->view-category --}}
                  <div class="col-md-3 mt-3">

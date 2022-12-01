@@ -15,13 +15,16 @@
                     @foreach ($featured_products as $prod)
                         <div class="col-md-3 mt-3">
                             <div class="card" style="width: 175px">
-                                <img src="{{ asset('assets/uploads/products/' . $prod->image) }}" alt="Product card"
-                                    style="height:150px; width:100%">
-                                <div class="card-body">
-                                    <h5>{{ $prod->name }}</h5>
-                                    <span class="float-start">{{ $prod->selling_price }}</span>
-                                    <span class="float-end"><s>{{ $prod->original_price }}</s></span>
-                                </div>
+                                <a href="{{ url('viewcategory/'.$prod->name, []) }}" class="btn">
+                                <img src="{{ asset('assets/uploads/products/'. $prod->image) }}" alt="Product card"
+                                style="height:150px; width:100%">
+                            <div class="card-body">
+                                <h5>{{ $prod->name }}</h5>
+                                <span class="float-start">{{ $prod->selling_price }}VND</span>
+                                <span class="float-end"><s>{{ $prod->original_price }}</s></span>
+                            </div>
+                               </a>
+                                {{-- <a href="{{ url('view_category/'.$category->slug.'/'.$prod->slug, []) }}"></a> --}}
                             </div>
                         </div>
                     @endforeach
@@ -38,6 +41,7 @@
 
                     @foreach ($trending_category as $category)
                         <div class="col-md-3 mt-3">
+                            <a href="{{ url('category', []) }}" class="btn">
                             <div class="card" style="width: 175px">
                                 <img src="{{ asset('assets/uploads/category/' . $category->image) }}" alt="Product card"
                                 style="height:150px; width:100%">
@@ -47,6 +51,7 @@
                                     <span class="float-end"><s>{{ $category->original_price }}</s></span>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     @endforeach
                 </div>
